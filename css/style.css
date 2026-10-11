@@ -109,6 +109,16 @@ img { max-width: 100%; height: auto; display: block; }
     border-bottom: 0 !important;
   }
 
+  /* Compact footer */
+  footer { padding: 28px 20px !important; }
+  footer > div { gap: 14px 20px !important; font-size: 13px !important; line-height: 1.6 !important; }
+  footer > div[style*="display: grid"] { grid-template-columns: 1fr 1fr !important; }
+  footer > div[style*="display: grid"] > div:first-child { grid-column: 1 / -1; }
+  footer > div[style*="display: grid"] > div:last-child { grid-column: 1 / -1; flex-direction: row !important; flex-wrap: wrap; gap: 0 16px; }
+  footer > div[style*="display: grid"] > div:last-child strong { width: 100%; }
+  footer > div > span:first-child, footer > div > div:first-child > span:first-child { font-size: 20px !important; }
+  footer nav { gap: 6px 16px !important; }
+
   /* Hero buttons side by side */
   .hero-ctas { flex-wrap: nowrap !important; gap: 8px !important; }
   .hero-ctas a {
