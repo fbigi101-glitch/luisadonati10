@@ -37,15 +37,3 @@ document.querySelectorAll('form').forEach(function (form) {
     alert('Thank you! This form is not connected yet.');
   });
 });
-
-// Journal topic filters: highlight the selected button.
-document.querySelectorAll('[role="group"] button').forEach(function (button, _, all) {
-  button.addEventListener('click', function () {
-    all.forEach(function (b) {
-      b.style.background = 'transparent';
-      b.style.color = '#1A1A1A';
-    });
-    button.style.background = '#1A1A1A';
-    button.style.color = '#FFFFFF';
-  });
-});
