@@ -1,3 +1,22 @@
+// Logo: stretch "Italy as an Italian" to exactly the width of "Luisa Donati".
+function fitLogo() {
+  document.querySelectorAll('.logo').forEach(function (logo) {
+    var name = logo.querySelector('.logo-name');
+    var tag = logo.querySelector('.logo-tag');
+    if (!name || !tag) return;
+    tag.style.letterSpacing = '0px';
+    tag.style.marginRight = '0px';
+    var chars = tag.textContent.length;
+    var spacing = (name.getBoundingClientRect().width - tag.getBoundingClientRect().width) / chars;
+    tag.style.letterSpacing = spacing + 'px';
+    // letter-spacing also adds space after the last letter: remove it so both lines end together
+    tag.style.marginRight = (-spacing) + 'px';
+  });
+}
+fitLogo();
+if (document.fonts && document.fonts.ready) document.fonts.ready.then(fitLogo);
+window.addEventListener('resize', fitLogo);
+
 // Mobile menu: open and close with the "Menu" button.
 var toggle = document.querySelector('.menu-toggle');
 var nav = document.getElementById('site-nav');
