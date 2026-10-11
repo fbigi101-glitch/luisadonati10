@@ -1,0 +1,149 @@
+/* Luisa Donati – shared styles
+   Colours
+   paper  #F4F1EA   ink    #1A1A1A   muted  #55514A   accent #B23A1B
+   banners: home #E4572E · travel #2F5BEA · day plans #3DBE8B
+            abbondanza #F2B33D · journal #F28FB0 · about #157A7A
+*/
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  background: #F4F1EA;
+  color: #1A1A1A;
+  font-family: 'Source Serif 4', Georgia, serif;
+  font-size: 18px;
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+}
+
+a { color: #1A1A1A; }
+a:hover { color: #B23A1B; }
+a:focus-visible, button:focus-visible, input:focus-visible,
+select:focus-visible, textarea:focus-visible, summary:focus-visible {
+  outline: 2px solid #B23A1B;
+  outline-offset: 2px;
+}
+
+h1, h2, h3 {
+  font-family: 'Archivo', sans-serif;
+  font-stretch: 87.5%;
+  font-weight: 600;
+  line-height: 1.08;
+  letter-spacing: -0.01em;
+  margin: 0;
+}
+
+input, select, textarea, button, summary { font-family: 'Archivo', sans-serif; }
+
+img { max-width: 100%; height: auto; display: block; }
+
+/* Real photos: replace a placeholder <div> with
+   <img class="photo" src="images/your-photo.jpg" alt="Description" style="aspect-ratio: 4 / 3"> */
+.photo { width: 100%; object-fit: cover; }
+
+/* Menu button: only visible on phones */
+.menu-toggle {
+  display: none;
+  align-items: center;
+  gap: 10px;
+  min-height: 44px;
+  padding: 10px 14px;
+  background: transparent;
+  border: 1px solid #1A1A1A;
+  border-radius: 0;
+  color: #1A1A1A;
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  cursor: pointer;
+}
+.menu-toggle::after {
+  content: "";
+  width: 16px;
+  height: 10px;
+  border-top: 2px solid currentColor;
+  border-bottom: 2px solid currentColor;
+  background: linear-gradient(currentColor, currentColor) center / 100% 2px no-repeat;
+}
+.menu-toggle[aria-expanded="true"]::after {
+  height: 0;
+  border-bottom: 0;
+  background: none;
+}
+
+/* ---------- Phones and small tablets ---------- */
+@media (max-width: 720px) {
+  body { font-size: 17px; line-height: 1.6; }
+
+  /* Type */
+  h1 { font-size: 34px !important; }
+  h2 { font-size: 27px !important; }
+  h3 { font-size: 21px !important; }
+  [style*="font-size: 19px"], [style*="font-size: 20px"] { font-size: 17px !important; }
+  blockquote { font-size: 20px !important; }
+  [style*="font-size: 30px"] { font-size: 24px !important; }
+
+  /* Header + menu */
+  header > div { padding: 12px 20px !important; flex-wrap: wrap !important; }
+  header a[href="index.html"] span:first-child { font-size: 24px !important; }
+  .menu-toggle { display: inline-flex; }
+  .site-nav {
+    display: none !important;
+    width: 100%;
+    flex-direction: column !important;
+    align-items: stretch !important;
+    gap: 0 !important;
+    font-size: 17px !important;
+    border-top: 1px solid #1A1A1A;
+    margin-top: 4px;
+  }
+  .site-nav.open { display: flex !important; }
+  .site-nav a { padding: 14px 0; border-bottom: 1px solid #D6CFC2 !important; }
+  .site-nav a:last-child {
+    justify-content: center;
+    margin: 16px 0 8px;
+    padding: 14px 20px !important;
+    border-bottom: 0 !important;
+  }
+
+  /* Spacing */
+  [style*="padding: 80px 32px"], [style*="padding: 72px 32px"],
+  [style*="padding: 64px 32px"], [style*="padding: 56px 32px"] { padding: 40px 20px !important; }
+  [style*="padding: 40px 32px"] { padding: 28px 20px !important; }
+  [style*="padding: 40px 32px 0"] { padding: 28px 20px 0 !important; }
+  [style*="padding: 0 32px 72px"] { padding: 0 20px 40px !important; }
+  [style*="gap: 48px"], [style*="gap: 56px"] { gap: 24px !important; }
+  [style*="gap: 36px"], [style*="gap: 32px;"] { gap: 20px !important; }
+
+  /* Photos: less tall on phones */
+  [style*="flex: 1 1 420px; aspect-ratio"],
+  [style*="flex: 1 1 440px; aspect-ratio"],
+  [style*="flex: 1 1 480px; aspect-ratio"] { aspect-ratio: 4 / 3 !important; max-width: none !important; }
+  [style*="aspect-ratio: 3 / 4"] { aspect-ratio: 4 / 5 !important; }
+
+  /* Small grids that become single column */
+  [style*="grid-template-columns: 130px"] { grid-template-columns: 1fr !important; gap: 2px !important; }
+  [style*="minmax(200px, 1fr)); gap: 16px"] { gap: 4px 16px !important; }
+
+  /* Horizontal carousels */
+  .h-scroll {
+    display: flex !important;
+    flex-wrap: nowrap !important;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    gap: 16px !important;
+    margin-right: -20px;
+    padding-right: 20px !important;
+    padding-bottom: 8px;
+    scrollbar-width: none;
+    -webkit-overflow-scrolling: touch;
+  }
+  .h-scroll[style*="padding: 64px 32px"], .h-scroll[style*="padding: 40px 32px"] { scroll-padding-left: 20px; }
+  .h-scroll::-webkit-scrollbar { display: none; }
+  .h-scroll > * { flex: 0 0 78%; scroll-snap-align: start; min-width: 0; }
+  .h-scroll.ig { gap: 8px !important; }
+  .h-scroll.ig > * { flex-basis: 44%; }
+}
