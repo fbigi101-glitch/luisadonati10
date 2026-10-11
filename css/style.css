@@ -1,8 +1,8 @@
 /* Luisa Donati – shared styles
    Colours
    paper  #F4F1EA   ink    #1A1A1A   muted  #55514A   accent #B23A1B
-   banners: home #E4572E · travel #2F5BEA · day plans #3DBE8B
-            abbondanza #F2B33D · journal #F28FB0 · about #157A7A
+   banners: home #157A7A · travel #2F5BEA · day plans #3DBE8B
+            abbondanza #E4572E · journal #F28FB0 · about #F2B33D
 */
 
 *, *::before, *::after { box-sizing: border-box; }
